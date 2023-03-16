@@ -11,9 +11,14 @@ function getRandomHexColor() {
 btnStart.addEventListener("click", startChangeBgColor);
 btnStop.addEventListener("click", stopChangeBgColor);
 
-function startChangeBgColor(event) {
+function startChangeBgColor() {
   getId = setInterval(() => bodyEl.style.backgroundColor = getRandomHexColor(), 1000);
   btnStart.disabled  = true;
   btnStop.disabled  = false;
 }
 
+function stopChangeBgColor() {
+    clearInterval(getId);
+    btnStart.disabled  = false;
+    btnStop.disabled  = true;
+  }
